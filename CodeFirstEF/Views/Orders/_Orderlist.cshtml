@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CodeFirstEF.Models.OrderDTO>
+
+@{
+    
+}
+
+
+
+<p>
+
+</p>
+<div id="ordList">
+    <table class="table table-striped" name="Customers">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.No)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                CustomerName
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+
+            <th>Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.ActionLink(@item.No, "Details", new { id = item.Id })
+        </td>
+        <td>
+            @item.OrderDate
+        </td>
+        <td>
+            @item.Customer.Name
+        </td>
+        <td>
+            @item.Amount
+        </td>
+
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+        </td>
+    </tr>
+        }
+
+    </table>
+</div>
+
